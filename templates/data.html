@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Data Visualization</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet"></link>
+        <link rel="stylesheet" type=text/css href="../static/style2.css"></link>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body onload="load();">
+
+        <section class="background">
+                <span class="line top side" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span>
+                <span class="line right up" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span>
+                <span class="line left up" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span>
+                <span class="line bottom side" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span>
+        </section>
+
+        <div class="options">
+
+            <div id="left-menu" class="menu-left sector" tabindex="1">
+
+                <ul class="t-stretch">
+					<li>D</li>
+					<li>A</li>
+					<li>T</li>
+					<li>A</li>
+				</ul>
+
+            </div>
+
+            <div class="menu-right sector" tabindex="1">
+
+                <ul class="t-stretch">
+					<li>E</li>
+					<li>T</li>
+					<li>A</li>
+					<li>E</li>
+					<li>R</li>
+                    <li>C</li>
+				</ul>
+
+            </div>
+
+            <div class="menu-bottom sector" tabindex="1">
+
+                <ul class="t-stretch">
+					<li>A</li>
+					<li>B</li>
+					<li>O</li>
+					<li>U</li>
+					<li>T</li>
+				</ul>
+
+            </div>
+
+            <div class="main">
+                <div class="welcome-message">
+                    <ul id="welcome-head" class="head-text text typewriter"></ul>
+                    <ul id="welcome-body" class="message-body text typewriter"></ul>
+                </div>
+
+                <div class="menu-left-sub-menu">
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item" id="raw-data-view" tabindex="1">RAW DATA</li>
+                        <li class="sub-menu-item" id="graph-data-view" tabindex="1">TIME VS NODE</li>
+                        <li class="sub-menu-item" tabindex="1">NODE COUNT</li>
+                    </ul>
+                </div>
+
+                <div class="menu-bottom-sub-menu">
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item bottom-sub-button" id="knapsack_button" tabindex="1">KNAPSACK PROBLEM</li>
+                        <li class="sub-menu-item bottom-sub-button" id="dynamic_button" tabindex="1">DYNAMIC PROGRAMMING</li>
+                        <li class="sub-menu-item bottom-sub-button" id="greedy_button" tabindex="1">GREEDY ALGORITHM</li>
+                        <li class="sub-menu-item bottom-sub-button" id="b_b_button" tabindex="1">BRANCH AND BOUND</li>
+                        <li class="sub-menu-item bottom-sub-button" id="backtracking_button" tabindex="1">BACKTRACKING</li>
+                        <li class="sub-menu-item bottom-sub-button" id="author_button" tabindex="1">AUTHOR</li>
+                    </ul>
+                </div>
+
+                <div class="raw">
+                    <div class="custom_t">
+                        <select id="filter-raw" multiple>
+                        </select>
+                        <div id="table-head" class="row">
+                        </div>
+                        <div id="table-body">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="graph">
+                    <canvas id="graph_chart"></canvas>
+                </div>
+
+                <div class="about">
+                    <div id="knapsack" class="about_sub">
+                        <h3>The Knapsack Problem</h3>
+                        <p>
+                            The knapsack problem is a problem in combinatorial optimization upon which you have a given set of items each with a weight and value.
+                            These items must be sorted into a container with X capacity. The goal is to determine what items to select where the result is that the total
+                            weight does not exceed the container however the value is as high as possible.
+                        </p>
+                        <p>
+                            The knapsack problem is a np-hard problem with x amount of items having 2^X combinations that are possible.
+                        </p>
+                    </div>
+                    <div id="dynamic" class="about_sub">
+                        <h3>Dynamic Programming</h3>
+                        <p>
+                            Dynamic programming is a solution to many complex optimization problems. It holds the idea of breaking general problem down into a number of sub-problems.
+                            each sub-problem is solved just once and the result is stored. This means that if this sub-problem ever occurs again we have the solution ready oppose to
+                            recomputing the solution.
+                        </p>
+                    </div>
+                    <div id="greedy" class="about_sub">
+                        <h3>Greedy Algorithms</h3>
+                        <p>
+                            A greedy algorithm is a way of achieving the local optimum in the hopes that it is or is close to the global optimum as such this solution provides
+                            an answer that is fast to calculate but can contain a large degree of inaccuracy.
+                        </p>
+                        <p>
+                            In relation to the knapsack problem I have tested 3 different variants of the greedy algorithm, being solving for ratio, weight and value.
+                            Solving for ratio is achieved by calculating a score for each item based on what gives the best value for the weight it has. This usualy results in the most
+                            acurate of answers as far as accuracy is concerned in relation to greedy algorithm's.
+                        </p>
+                    </div>
+                    <div id="b_b" class="about_sub">
+                        <h3>Branch & Bound</h3>
+                        <p>Branch and bound algorithms work by evaluating branches of the tree (sub sets) against estimated bounds of an optimal solution. If
+                        the current subset does not exceed the bound or the highest found value then the branch of the tree is cut removing all sub sets that fall beneath it.
+                        This means we no longer explore branches that we deem are no good unlike in a backtracking algorithm.</p>
+                    </div>
+                    <div id="backtracking" class="about_sub">
+                        <h3>Backtracking</h3>
+                        <p>Backtracking is a general algorithm for finding the optimal solution in an optimization problem.
+                        Taking the analogy of the branch and tree in the branch and bound description backtracking works on a similar context.
+                        However unlike branch and bound backtracking will explore every single branch even if it is deemed unsuitable. This will eventually find the global optimum however at the cost of exploring the entire tree.</p>
+                    </div>
+                    <div id="author" class="about_sub">
+                        <h3>Author</h3>
+                        <p>Joshua Nuttall</p>
+                        <p>Software Development</p>
+                        <p>Exploration into the Knapsack Problem</p>
+                    </div>
+                </div>
+
+                <div class="create">
+
+                </div>
+
+            </div>
+
+            <div class = "shadow" style = "opacity: 0; background-color: black; width: 100%; height: 100%; z-index: -1;"></div>
+        </div>
+
+        <script>
+
+            var height = 0;
+            var about = {"#knapsack_button": "#knapsack", "#dynamic_button": "#dynamic", "#greedy_button": "#greedy", "#b_b_button": "#b_b", "#author_button": "#author", "#backtracking_button": "#backtracking"};
+
+
+            function load(){
+                elements = document.getElementsByClassName("up");
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.height="100%";
+                }
+                elements = document.getElementsByClassName("side");
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.width="100%";
+                }
+                elements = document.getElementsByClassName("sector");
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.color="white";
+                }
+                var head = "WELCOME,";
+                var body = "PLEASE SELECT AN OPTION...";
+                for (var i = 0; i < head.length; i++) {
+                    $( "#welcome-head" ).append( "<li>"+head.charAt(i)+"</li>" );
+                }
+                for (var i = 0; i < body.length; i++) {
+                    $( "#welcome-body" ).append( "<li>"+body.charAt(i)+"</li>" );
+                }
+
+                var wh = document.getElementById("welcome-head");
+                wh.addEventListener("animationend", listener, false);
+                var wb = document.getElementById("welcome-body");
+                wb.addEventListener("animationend", listener, false);
+                height =  document.getElementsByClassName('main')[0].clientHeight;
+            }
+
+            function listener(e){
+                e.srcElement.style.whiteSpace ="normal";
+            }
+
+            var retrieve = function async() {
+                var values = format_data();
+                var ctx = document.getElementById("graph_chart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'scatter',
+                    data: {
+                        datasets: [{ showLine: true, data: values["greedy_rat"], label: "GreedyR", borderColor: "rgba(165,86,39, 1)"},
+                        { showLine: true, data: values["greedy_sat"], label: "GreedyS", borderColor: "rgba(143,174,51, 1)"},
+                        { showLine: true, data: values["greedy_val"], label: "GreedyV", borderColor: "rgba(101,185,197, 1)"},
+                        { showLine: true, data: values["branch_bound"], label: "Branch&Bound", borderColor: "rgba(101,185,132, 1)" },
+                        { showLine: true, data: values["Create_Test"], label: "Construct&Test", borderColor: "rgba(7,157,206, 1)" },
+                        { showLine: true, data: values["Backtracking_for"], label: "BacktrackingFor", borderColor: "rgba(180,10,100, 1)" },
+                        { showLine: true, data: values["Backtracking"] , label: "BacktrackingR", borderColor: "rgba(120,20,65, 1)"}]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                type: 'linear',
+                                position: 'bottom'
+                            }]
+                        },
+                        plugins: {
+                            filler: {
+                                propagate: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            retrieve();
+
+            function format_data(){
+                var values = {};
+
+                $.ajax({
+                    url : "/get_data/Greedy Satisfaction Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                        values["greedy_sat"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Greedy Ratio Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                         values["greedy_rat"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Greedy Value Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                         values["greedy_val"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Backtracking For Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                        values["Backtracking_for"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Backtracking Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                        values["Backtracking"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Branch and Bound Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                        values["branch_bound"] = x;
+                    }
+                });
+                $.ajax({
+                    url : "/get_data/Create_Test_Time/",
+                    type : "get",
+                    async: false,
+                    success : function(data) {
+                        var x = JSON.parse(data);
+                        values["Create_Test"] = x;
+                    }
+                });
+                return values;
+            }
+
+            $(".sub-menu-item").focus(function(){
+                $(".welcome-message").css("display", "none");
+            });
+
+            $.get("/get_data/", function(data, status){
+                var x = JSON.parse(data);
+                if(Object.keys(x).length == 0)
+                    return;
+                var keys_outer = Object.keys(x);
+                var keys = Object.keys(x['0']);
+                for (var i = 0; i < keys_outer.length; i++){
+                    $( "#table-body" ).append("<div class='row' id="+keys_outer[i]+"></div>");
+                    for ( var y = 0; y < keys.length; y++){
+                        $( "#"+keys_outer[i] ).append("<div class='"+ keys[y].replace(/ /g,"_")+" col-sm-3' style='display: none;'>"+ x[keys_outer[i]][keys[y]]+"</div>");
+                    }
+                }
+                for (var i = 0; i < keys.length; i++) {
+                    $( "#filter-raw" ).append( "<option value="+keys[i].replace(/ /g,"_")+">"+keys[i]+"</option>" );
+                    $( "#table-head" ).append("<div class='"+keys[i].replace(/ /g,"_")+" col-sm-3 category' style='display: none;'>"+keys[i].replace(/ /g,"_")+"</div>");
+
+                    if(i < 4){
+                        $( "."+keys[i].replace(/ /g,"_")).css("display", "initial");
+                    }
+                }
+                $(".custom_t").css("max-height", (height-50).toString()+"px");
+                $("#table-body").css("max-height", (height-150).toString()+"px");
+                data = x;
+
+            });
+
+            $("#filter-raw").change(function() {
+                var selected = $("#filter-raw option:selected");
+                if (selected.length >= 4) {
+                    $("#filter-raw option:not(:selected)").prop("disabled",true);
+                }else{
+                    $("#filter-raw option:disabled").prop("disabled",false);
+                }
+                for (var i = 0; i < selected.length; i++) {
+                    $('.'+selected[i].value).css("display", "initial");
+                }
+                var not_sel = $("#filter-raw option:not(:selected)");
+                for (var i = 0; i < not_sel.length; i++) {
+                    $('.'+not_sel[i].value).css("display", "none");
+                }
+            });
+
+            $(".sector").focus(function(){
+                $(".raw").css("display", "block");
+                $(".graph").css("display", "block");
+                $(".about").css("display", "block");
+                $(".create").css("display", "block");
+            });
+
+            $("#raw-data-view").focus(function(){
+                $(".raw").css("opacity", "1");
+                $(".graph").css("opacity", "0");
+                $(".graph").css("display", "none");
+                $(".about").css("display", "none");
+                $(".create").css("display", "none");
+            });
+
+            $("#graph-data-view").focus(function(){
+                $(".graph").css("opacity", "1");
+                $(".raw").css("opacity", "0");
+                $(".raw").css("display", "none");
+                $(".about").css("display", "none");
+                $(".create").css("display", "none");
+            });
+
+            $(".bottom-sub-button").focus(function(){
+                for (var key in about) {
+                    if (about.hasOwnProperty(key)) {
+                        if(("#"+$(this).attr("id")) === key){
+                            $(about[key]).css("display", "block");
+                            $(about[key]).css("opacity", "1");
+                        }else{
+                            $(about[key]).css("opacity", "0");
+                            $(about[key]).css("display", "none");
+                        }
+                    }
+                }
+                $(".raw").css("display", "none");
+                $(".graph").css("display", "none");
+                $(".raw").css("opacity", "0");
+                $(".graph").css("opacity", "0");
+            });
+
+        </script>
+    </body>
+</html>

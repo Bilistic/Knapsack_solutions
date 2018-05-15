@@ -1,0 +1,546 @@
+body{
+    background-color: #1f1f1f;
+	color: white;
+}
+
+.line{
+    background-color: white;
+    position: absolute;
+    display: block;
+    opacity: 0.075;
+    z-index: 0;
+}
+
+.background{
+    opacity: 1;
+}
+
+.up{
+    width: 1.5px;
+    height: 0%;
+    transition: height 2s ease-in-out .5s;
+}
+
+.side{
+    height: 1.5px;
+    width: 0%;
+    transition: width 2s ease-in-out .5s;
+}
+
+.top{
+	top: 20%;
+}
+
+.right{
+	right: 15%;
+}
+
+.bottom{
+	bottom: 20%;
+}
+
+.left{
+	left: 15%;
+}
+
+.sector{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    transition: all 1s ease-in-out;
+    color: transparent;
+}
+
+.sector:hover {
+	background-color: rgba(255, 255, 255, 0.02);
+	color: white;
+	transition: all 1s ease-in-out;
+}
+
+.sector:focus{
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.02);
+	transition: all 1s ease-in-out;
+}
+
+.sector:focus ~ .shadow{
+	opacity: 0.5 !important;
+	transition: all 1s ease-in-out;
+	z-index: 2 !important;
+}
+
+.options{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.t-stretch{
+	top: 50%;
+	list-style: none;
+	position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.menu-left{
+	top: 20%;
+    width: 15%;
+	height: 60%;
+	left: 0%;
+    padding: 10px;
+}
+
+.menu-left > .t-stretch{
+	left: 40%;
+}
+
+.menu-left > .t-stretch > li{
+	font-family: Open Sans, Arial;
+	font-weight: 100;
+	font-size: 2em;
+	transform: rotate(90deg);
+	transition: all .5s ease-in-out;
+}
+
+.menu-bottom{
+    bottom: 0%;
+    width: 70%;
+	height: 20%;
+	left: 15%;
+    padding: 10px;
+}
+
+.menu-bottom > .t-stretch{
+	left: 50%;
+}
+
+.menu-bottom  > .t-stretch > li{
+    margin-left: 8px;
+    display: inline-block !important;
+	font-family: Open Sans, Arial;
+	font-weight: 100;
+	font-size: 2em;
+	transition: all .5s ease-in-out;
+}
+
+.menu-right{
+	top: 20%;
+    width: 15%;
+	height: 60%;
+	right: 0%;
+    padding: 10px;
+}
+
+.menu-right > .t-stretch{
+	right: 40%;
+}
+
+.menu-right > .t-stretch > li{
+	font-family: Open Sans, Arial;
+	font-weight: 100;
+	font-size: 2em;
+	transform: rotate(270deg);
+	transition: all .5s ease-in-out;
+}
+
+.menu-left:hover > .t-stretch > li:nth-child(1), .menu-left:focus > .t-stretch > li:nth-child(1) {transform: translateY(-50px) rotate(90deg); transition: all .5s ease-in-out;}
+.menu-left:hover > .t-stretch > li:nth-child(2), .menu-left:focus > .t-stretch > li:nth-child(2) {transform: translateY(-15px) rotate(90deg); transition: all .5s ease-in-out;}
+.menu-left:hover > .t-stretch > li:nth-child(3), .menu-left:focus > .t-stretch > li:nth-child(3) {transform: translateY(15px) rotate(90deg); transition: all .5s ease-in-out;}
+.menu-left:hover > .t-stretch > li:nth-child(4), .menu-left:focus > .t-stretch > li:nth-child(4) {transform: translateY(50px) rotate(90deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(1), .menu-right:focus > .t-stretch > li:nth-child(1){transform: translateY(-50px) rotate(270deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(2), .menu-right:focus > .t-stretch > li:nth-child(2){transform: translateY(-20px) rotate(270deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(3), .menu-right:focus > .t-stretch > li:nth-child(3){transform: translateY(-5px) rotate(270deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(4), .menu-right:focus > .t-stretch > li:nth-child(4){transform: translateY(5px) rotate(270deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(5), .menu-right:focus > .t-stretch > li:nth-child(5){transform: translateY(20px) rotate(270deg); transition: all .5s ease-in-out;}
+.menu-right:hover > .t-stretch > li:nth-child(6), .menu-right:focus > .t-stretch > li:nth-child(6){transform: translateY(50px) rotate(270deg); transition: all .5s ease-in-out;}
+
+.menu-bottom:hover > .t-stretch > li:nth-child(1), .menu-bottom:focus > .t-stretch > li:nth-child(1){transform: translateX(-20px); transition: all .5s ease-in-out;}
+.menu-bottom:hover > .t-stretch > li:nth-child(2), .menu-bottom:focus > .t-stretch > li:nth-child(2){transform: translateX(-8px); transition: all .5s ease-in-out;}
+.menu-bottom:hover > .t-stretch > li:nth-child(4), .menu-bottom:focus > .t-stretch > li:nth-child(4){transform: translateX(8px); transition: all .5s ease-in-out;}
+.menu-bottom:hover > .t-stretch > li:nth-child(5), .menu-bottom:focus > .t-stretch > li:nth-child(5){transform: translateX(20px); transition: all .5s ease-in-out;}
+
+.main{
+    z-index: 1;
+    position: fixed;
+    display: block;
+    top: 20%;
+    height: 60%;
+    left: 15%;
+    width: 70%;
+    padding: 10px;
+}
+
+.text{
+    list-style: none;
+}
+
+.head-text > li{
+    display: inline-block !important;
+    font-family: Open Sans, Arial;
+	font-weight: 80;
+	margin-left: 5px;
+	font-size: 1.2em;
+}
+
+.message-body > li{
+    display: inline-block !important;
+    opacity: .6;
+    font-family: Open Sans, Arial;
+	font-weight: 80;
+	font-size: 1.2em;
+	margin-left: 5px;
+}
+
+.welcome-message{
+    top: 50%;
+    left:50%;
+    position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+	transition: all 1s ease-in-out;
+	cursor: default;
+}
+
+.typewriter{
+    white-space: nowrap;
+    overflow: hidden;
+    animation: write 4s steps(44) 1s 1 normal both;
+}
+
+
+
+.menu-left:active, .menu-left:hover ~ .main > .menu-left-sub-menu{
+    display: block;
+}
+
+.menu-bottom:active, .menu-bottom:hover ~ .main > .menu-bottom-sub-menu{
+    display: block;
+}
+
+.menu-bottom-sub-menu:hover, .menu-left-sub-menu:hover{
+    display: block;
+}
+
+.menu-left-sub-menu{
+    z-index: -1;
+    top: 50%;
+    left: 20%;
+    position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+	transition: all 1.5s ease-in-out;
+	color: transparent;
+	display: none;
+}
+
+.menu-bottom-sub-menu{
+    z-index: -2;
+    top: 50%;
+    left: 30%;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+	transition: all 1.5s ease-in-out;
+	color: transparent;
+	display: none;
+}
+
+.sub-menu{
+    list-style: none;
+    cursor: default;
+}
+
+.sub-menu > li{
+    font-family: Open Sans, Arial;
+	font-weight: 100;
+	letter-spacing: 8px;
+	font-size: 2em;
+}
+
+.sub-menu-item:hover{
+    animation: opt-color 1s steps(44) 1 normal both;
+}
+
+.sub-menu-item:focus{
+    outline: none;
+}
+
+#left-menu:focus ~ .main > .menu-left-sub-menu{
+    display: block;
+    z-index: 1;
+    color: white;
+    left: 40%;
+}
+
+.menu-bottom:focus ~ .main > .menu-bottom-sub-menu{
+    display: block;
+    z-index: 1;
+    color: white;
+    left: 40%;
+}
+
+.sector:focus ~ .main > .welcome-message{
+     transform: translateX(-50%) translateY(-120%);
+     opacity: 0;
+     z-index: -1;
+}
+
+#filter-raw{
+    background-color: transparent;
+    border-color: rgba(255,255,255, 0.2);
+    color: white;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    transition: all 1s ease-in-out;
+}
+
+#filter-raw:hover{
+    height: 80px;
+}
+
+#filter-raw > option{
+    text-transform: uppercase;
+    padding: 2px;
+    font-family: Open Sans, Arial;
+	font-weight: 50;
+	margin-left: 2px;
+	font-size: .8em;
+}
+
+#filter-raw > option:hover{
+    background-color: transparent;
+    opacity: .8;
+}
+
+#filter-raw > option:focus{
+    background-color: transparent;
+    opacity: .8;
+}
+
+select[multiple]:focus option:checked {
+    background: #1f1f1f linear-gradient(0deg, #1f1f1f 0%, #1f1f1f 100%);
+    outline: none;
+    opacity: .6;
+}
+
+select::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+select::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+select::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+select:hover::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+select::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.custom_t{
+    text-align: center;
+    padding: 10px;
+    max-height: 550px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    top: 50%;
+    left:50%;
+    position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+	transition: all 1s ease-in-out;
+}
+
+#table-head{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#table-body{
+    max-height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#table-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+#table-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+#table-body::-webkit-scrollbar-thumb {
+     background: #888;
+     transition: background 1s ease-in-out;
+}
+
+/* Handle on hover */
+#table-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.raw{
+    cursor: default;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.sector:focus ~ .main > .raw > .custom_t{
+     transform: translateX(-50%) translateY(-80%);
+     opacity: 0;
+     z-index: -1;
+}
+
+.sector:focus ~ .main > .raw > .custom_t > #filter-raw{
+     opacity: 0;
+     z-index: -1;
+}
+
+.sector:focus ~ .main > .raw > .custom_t > #table-body::-webkit-scrollbar-thumb {
+     background: transparent;
+}
+
+.sector:focus ~ .main > .raw{
+    opacity: 0 !important;
+    z-index: -1;
+}
+
+.sector:focus ~ .main > .graph{
+    transform: translateX(-50%) translateY(-80%);
+    opacity: 0 !important;
+    z-index: -1;
+}
+
+.graph{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    max-width: 1100px;
+    top: 50%;
+    left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	transition: all 1s ease-in-out;
+}
+
+.about{
+    display: none;
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	font-family: Open Sans, Arial;
+	font-weight: 65;
+	font-size: .8em;
+	transition: all 1s ease-in-out;
+}
+
+.sector:focus ~ .main > .about{
+     transform: translateX(-50%) translateY(-80%);
+     opacity: 0;
+     z-index: -1;
+}
+
+.about_sub{
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.create{
+    display: none;
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left:50%;
+	transform: translateX(-50%) translateY(-50%);
+    font-family: Open Sans, Arial;
+	font-weight: 65;
+	font-size: .8em;
+}
+
+.input_number{
+    outline: none;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid grey;
+    color: grey;
+    transition: all .5s ease-in-out;
+}
+
+.input_number:focus{
+    outline: none;
+    border-color: white;
+    color: white;
+}
+
+@keyframes write{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes opt-color{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: .4;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #filter-raw{
+        width: 100%;
+        position: static;
+        transform: none;
+    }
+
+    .head-text > li{
+        font-weight: 60;
+        margin-left: 3px;
+        font-size: 1em;
+    }
+
+    .message-body > li{
+        font-weight: 50;
+        font-size: .8em;
+        margin-left: 2px;
+    }
+
+    .menu-left > .t-stretch > li{
+        font-weight: 65;
+        font-size: 1.4em;
+    }
+
+    .menu-bottom  > .t-stretch > li{
+        margin-left: 5px;
+        font-weight: 65;
+        font-size: 1.4em;
+    }
+
+    .menu-right > .t-stretch > li{
+        font-weight: 65;
+        font-size: 1.4em;
+    }
+
+    .menu-left > .t-stretch{
+        left: 20%;
+    }
+
+    .menu-right > .t-stretch{
+        right: 20%;
+    }
+}

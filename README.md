@@ -153,32 +153,15 @@ In this area we will explore related work and the relevance of this subject in r
 
 The knapsack problem, a section in combinatorial optimization of type NP-Complete. Combinatorial optimization is an area in theoretical computer science that consists of finding an a optimal selection of elements (with regard to some criteria) from a finite set. To fully understand the complexity of the knapsack problem we first must understand the class of NP. Any decision based problem with a given answer that can be verified by a polynomial time algorithm fits within an NP-Class. The knapsack problem of which fits into this is assigned the class of NP-Complete, this means it belongs to both NP-Hard and NP. NP-Hard being a problem that is at least as hard as the hardest problem in NP. As a result of this any polynomial solution to such a problem will be able to solve for the whole of NP. A problem X is NP-hard, if there is an NP-complete problem Y, such that Y is reducible to X in polynomial time [2]. all NP-complete problems can be reduced to any NP-hard problem in polynomial time therefore verifying the statement that a solution for an NP-complete problem can solve for all of NP. It is important to stress that since the knapsack problem is that of an NP-Complete problem it is impossible to solve for larger inputs [3].
 
-In order to conduct controlled comparisons of each algorithm implementation we use a benchmark test which will run each algorithm multiple times under different parameters (stress levels). Depending on the range of elements used this benchmark testing will
-
-```
-4
-```
-
-produce vast amount of data to analyze. Furthermore random generation of elements is achieved using a Weibull distribution.
-
-Therefor the topics covered within this report include The Knapsack Problem, Weibull and Normal distribution methods and benchmark testing.
+In order to conduct controlled comparisons of each algorithm implementation we use a benchmark test which will run each algorithm multiple times under different parameters (stress levels). Depending on the range of elements used this benchmark testing will produce vast amount of data to analyze. Furthermore random generation of elements is achieved using a Weibull distribution. Therefor the topics covered within this report include The Knapsack Problem, Weibull and Normal distribution methods and benchmark testing.
 
 ### 2.2 0/1 Knapsack Problem
 
 The 0/1 knapsack problem defined as:
 
 ```
-∑n
-i=
+∑ni=wixi≤ and xi∈ {0,1}
 ```
-```
-wixi≤ and xi∈
-```
-#### {
-
-#### 0 , 1
-
-#### }
 
 First identified in print in 1957 by George Dantzig[4] a founding developer of linear programming and with earlier roots dating back to 1897 in the early works of mathematician Tobias Dantzig[5]. The knapsack problem is one of the fundamental combinatorial optimization problems, the objective of the problem is to find the best possible solution from numerous other solutions with restrictions set as the capacity of the parent container ”the knapsack”. In general the knapsack is a bin-packing problem, in which the goal is to maximize the total value of items in (typically) a single bin [6]. The specific variant of the knapsack problem we will be using is that of a 0/1 problem, this indicates that for any given element we can either take it 1 or leave it 0. This is oppose to the fractional knapsack problem where we are permitted to brake elements up in order to maximize the volume given in our parent container. Further alternatives include Multi-objective knapsack problems upon which consist more than one constraint and the Multi-dimensional
 knapsack problem upon which there is more than one heuristic for each element. More than just the use of sorting elements into a knapsack, the knapsack problem is used and has been used across a vast area of computer science. Common uses include but are not limited to shipping container management, stock management, portfolio optimization, resource optimization and even cryptography whats further is that the knapsack problem often occurs as a sub problem of more complex mathematical models. In the world of cryptography the early works of public key encryption was solved by the use of the ”Merkle Hellman knapsack cryptosystem” (later proven inefficient). This acts as a good example for the problems diversity in that the MerkleHellman system is based on the subset sum problem which happens to be an unusual case of the knapsack problem [7].
@@ -267,21 +250,7 @@ Capacity_set I
 The Weibull distribution is a continuous probability distribution within probability theory. Named after Swedish mathematician Waloddi Weibull thanks to the work accomplished in his paper ”A Statistical Distribution Function of Wide Applicability” published 1951 [15], It has a probability density function defined as the following:
 
 ```
-∫
-(χ;λ,κ) =
-```
-```
-{ κ
-λ
-```
-```
-(χ
-λ
-```
-```
-)κ− 1
-−(χ/λ)κ χ≥ 0 ,
-0 χ≤ 0 ,
+∫(χ;λ,κ) = { κλ (χλ)κ− 1−(χ/λ)κ χ≥ 0 , 0 χ≤ 0 ,
 ```
 Whereκ >0 is the shape parameter andλ >0 is the scale parameter of the distribution. The density function utilized changes drastically with the value of k. As seen in figure
 2.2 below, the Weibull distribution has the ability to produce vastly different plots based on the shape ’κ’ parameter provided.
@@ -296,9 +265,7 @@ For our purposes of the Weibull distribution we require high diversity in genera
 
 ## Chapter 3
 
-# Solving the 0/1 Knapsack
-
-# problem
+# Solving the 0/1 Knapsack problem
 
 In this section we will view implementations of Branch & Bound, Generate & Test, Greedy and backtracking algorithms explored during the course of this investigation.
 

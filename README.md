@@ -461,12 +461,6 @@ Run-time being the most prevalent metric as most graphs presented are mapped as 
 
 Accuracy is concerned with many incomplete algorithms however Greedy was the only algorithm of its kind to be included within this investigation. Accuracy is included as a metric based on the fact we never truly know if the result returned from a greedy algorithm is the global optimum, luckily we can measure this against our exhaustive search algorithms that are guaranteed to return the global optimum.
 
-```
-19
-```
-
-Data Analysis Results 20
-
 Memory whilst insignificant as a metric to a Greedy algorithm plays a key role in the downfall on many exhaustive search algorithms. It is the result of the exponential growth in nodes to be represented by a search space tree or power-set in the case of a Generate & Test algorithm as such modeling memory consumption for certain algorithms can reveal what time may not.
 
 ### 4.2 Analysis
@@ -569,13 +563,7 @@ Whilst time was not an issue, goals set during 2018 where not all met. As mentio
 ### 5.2 Key Skills
 
 From completing this project I feel I have come into contact with only a small portion of what combinatorial optimization has to offer. I have learned algorithm designs I never
-knew existed and whilst there are papers out there presenting similar data to what is presented within this report it felt correct to not use this and produce my own. As a result ideas have come to fruition from just understanding the problem domain more clearly than I ever could by just reading about it. Areas never heard of nor explored have come to my attention such as NP and its child categories and whilst my knowledge
-
-```
-26
-```
-
-on these areas has only just scraped the surface it has revealed an interest to understand this sector more so than when i started this project in 2017. Whilst time was a limitation I feel it was well managed setting goals each week worked well and adjusted fine to the change in direction with the project from our initial path to where it is now. Whilst my new found knowledge on optimization is the clear biggest skill achieved from the time spent it would be remiss of me to not mention the experience I have gained spending time programming in C++ and Python previously very little attention given to either language over the past 4 years. The difference between both clearly showed the effects such a high level language has in terms of memory and execution oppose to a low level alternative like C++
+knew existed and whilst there are papers out there presenting similar data to what is presented within this report it felt correct to not use this and produce my own. As a result ideas have come to fruition from just understanding the problem domain more clearly than I ever could by just reading about it. Areas never heard of nor explored have come to my attention such as NP and its child categories and whilst my knowledge on these areas has only just scraped the surface it has revealed an interest to understand this sector more so than when i started this project in 2017. Whilst time was a limitation I feel it was well managed setting goals each week worked well and adjusted fine to the change in direction with the project from our initial path to where it is now. Whilst my new found knowledge on optimization is the clear biggest skill achieved from the time spent it would be remiss of me to not mention the experience I have gained spending time programming in C++ and Python previously very little attention given to either language over the past 4 years. The difference between both clearly showed the effects such a high level language has in terms of memory and execution oppose to a low level alternative like C++
 
 ### 5.3 Conclusion
 
@@ -624,15 +612,7 @@ research/pubfiles/4407/kolesarbranchbound.pdf
 [10] “Merge sort.” [Online]. Available: https://www.geeksforgeeks.org/merge-sort/
 
 [11] T. W. Francesca Rossi, Peter Van Beek, “Constraint satisfac-
-tion: An emerging paradigm,” Handbook of Constraint Programming,
-
-```
-30
-```
-
-Bibliography 31
-
-2007. [Online]. Available: https://web.archive.org/web/20070317015632/http:
+tion: An emerging paradigm,” Handbook of Constraint Programming, 2007. [Online]. Available: https://web.archive.org/web/20070317015632/http:
 //www.cse.ohio-state.edu/∼gurari/course/cis680/cis680Ch19.html#QQ1-51-128
 
 [12] P. E. Black, “greedy algorithm,” Dictionary of Algorithms and Data Structures

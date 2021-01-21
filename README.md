@@ -100,11 +100,6 @@ A comparative study into common algorithm design paradigms aimed towards the 0/1
 
 Optimization is a huge area in computing as such it is extremely important, its applications are seen the world over and it is almost guaranteed that the studies of this sector have been applied to software you have utilized. As Moores Law comes to an end we look towards alternative methods of gaining increased performance out of our current technology as such one way of achieving this is through optimized code. Obviously this is not my sole driving force behind my motivation for exploration in the sector of optimization but a part of it. My original goal was to achieve a resource management system in the area of electricity consumption. Whilst I have strayed away from this it was purely keeping in lines with the ideas of such a system. Meaning to solve the above problem I imagined it as a knapsack problem, a problem I had previously never encountered and hence this is where my interest begun as I learned during my research of the numerous approaches taken at solving the problem I was struck by how big the problem actually was and how many areas this problem applies to, hence I decided to focus entirely on a comparison of the more basic methods at solving the knapsack problem.
 
-#### 1
-
-
-Introduction 2
-
 ### 1.2 Executive Summary
 
 The Knapsack problem falls under the class of combinatorial optimization problems in which it tries to gain the best possible profit without exceeding the limits of its container. In this project we will conduct an investigation into numerous algorithms used to tackle the most generic 0/1 knapsack problem. Conclusions will be drawn based on algorithm complexity, duration till completion, generated results and programming effort. We will be using a mixture of algorithms, some completing in a reasonable time (Greedy) and those with a worst case time complexity of O(n).
@@ -117,34 +112,32 @@ The main goal of the investigation is to present a valid comparison between Bran
 
 Referring to the original project I stressed a goal of contributing in some way to technologies utilized in resource management, carrying this goal with me into this new, adapted project I am able to say that on conclusion of the investigation into this are I will be able to recommend various approaches to not just a knapsack problem but various combinatorial optimization problems as well as rank algorithms applicable to such a problem based on complexity, implementation effort, time and accuracy. Whilst
 
-Introduction 3
-
 this may seem vastly different to the original goal set of contributing to a sector I now have the knowledge going forward to return to said problem and complete the original target.
 
 ### 1.4 Structure of This Document
 
 Document Content is as follows:
 
-Chapter 1
+Chapter 1: 
 Presents the motivation the problem domain and the expected contribution from this
 work being accomplished.
 
-Chapter 2
+Chapter 2:
 Presented within this chapter is related work and the relevance of this subject in relation
 to Computer Science. it will explore the 0/1 knapsack problem, applicable algorithms
 and the differences between them.
 
-Chapter 3
+Chapter 3: 
 Within this chapter we will view implementations of the different algorithms imple-
 mented during this investigation. We will view code snippets and break down the im-
 plementation of the algorithm.
 
-Chapter 4
+Chapter 4: 
 In this chapter we will review data collected and present models generated from said
 data. Further more we will touch on how said data was interpreted and the relevance of
 the chosen metrics.
 
-Chapter 5
+Chapter 5: 
 Chapter 5 will draw conclusions from the data viewed in Chapter 4. Whats more is we
 touch on skills learned from this process and acknowledge potential future work to be
 carried out.
@@ -293,9 +286,6 @@ The Weibull distribution is a continuous probability distribution within probabi
 Whereκ >0 is the shape parameter andλ >0 is the scale parameter of the distribution. The density function utilized changes drastically with the value of k. As seen in figure
 2.2 below, the Weibull distribution has the ability to produce vastly different plots based on the shape ’κ’ parameter provided.
 
-
-Background 11
-
 ```
 Figure 2.2:small shapes [1]
 ```
@@ -369,9 +359,6 @@ return sum(x.satisfaction for x in finished_list.values ())
 Implemented three times within the project the Generate and test algorithm utilized underwent one mutation, version two being implemented in both C++ and Python for speed and memory usage comparisons.
 
 Version one of the generate and test algorithm was implemented solely in Python as such was written in a purely pythonic manor. The basic implementation operates on the basis of taking a candidate set X, generating all permutations for X (The super
-
-
-Background 15
 
 set of X) and storing them. Then filtering out permutations that do not fit within the constraints of the parent container, With this reduced list we then get the set that contains the maximum total value (The global optimum) and return this as our solution. This implementation can be seen below coupled with a code explanation.
 
@@ -523,9 +510,6 @@ Our setup includes a previously mentioned benchmark generator part of this proce
 
 Results presented in this section are gathered from algorithms presented in chapter 3, all implemented in Python unless stated otherwise. The test platform consists of an 8 core AMD 8370 running at 4.0GHz with 16GB of RAM, with each algorithm run 9 times for each node count with the result being the average taken from this. Since search space algorithms such as Branch & Bound, Backtracking and Generate & Test have a time complexity of O(2n) making it Unfeasible to calculate optimal solutions for large data sets as such values have been left as ”NA”. However, when utilized in a lower level language the speed and use of less memory allows for these limits to be significantly higher.
 
-
-Data Analysis Results 21
-
 ```
 Table 4.1:Results - Greedy Comparison
 size Greedy W Greedy R Greedy V
@@ -555,9 +539,6 @@ From the results we can clearly see the exponential nature of exhaustive search 
 
 However, as with most things there comes a trade off, in this case accuracy for time. In figure 4.2 we compare the three different greedy algorithms mentioned in terms of accuracy. this was taken between node range[5,30] with results compared to that achieved of branch and bound and the resulting accuracy being the average of all passes. This means for each node the algorithm was run 9 times the result for this node being the average of the nine, as the same with Branch & Bound and the accuracy tallied. This was achieved for the entire range and as such the final accuracy being the average of the
 
-
-Data Analysis Results 22
-
 ```
 Figure 4.1:Greedy Algorithms
 ```
@@ -567,9 +548,6 @@ Figure 4.2: Greedy Accuracy
 entire range. The results indicate greedy ratio and value (Satisfaction) proved accuracy of over 97% compared to high 60’s for a greedy based weight algorithm. This stands true when tested on a node count of up to 50, indicating greedy algorithms sorted by the correct heuristic provide a ”good enough” solution in the time taken compared to its exhaustive search relatives.
 
 Further examination of exhaustive search algorithms within figure 4.3 prove Generate & Test to be the fastest of a bad bunch. However, whilst an improvement on time Generate & Test utilizes the most amount of memory of all the algorithms tested and as with time, memory consumption proves exponential towards the size of the candidate node set. Measures taken to reduce the amount of potential candidates by pruning the
-
-
-Data Analysis Results 23
 
 ```
 Figure 4.3:Exhaustive search algorithms
@@ -587,9 +565,6 @@ Nodes Memory - MB
 ```
 Furthermore in figure 4.3 we see the difference in time a recursive backtracking function takes over an iterative one. Whilst the difference becomes greater the higher the node count, an iterative backtracking function is still in-feasible in node counts past 25. However, in larger node counts whilst time is also a factor, as is with Generate & Test
 
-
-Data Analysis Results 24
-
 an iterative backtracking approach eventually consumes to large an amount of memory further adding to the in-feasibility of this approach.
 
 ```
@@ -600,9 +575,6 @@ In figure 4.4 Branch & bound is presented as an unpredictable algorithm peaking 
 In an attempt to smooth the presented data in figure 4.4 the Branch & Bound algorithm was run a further 10 times and averaged however the resulting data produced an even rougher line presented within figure 4.5.
 
 Whilst the results seen so far have been provided with a parent container at capacity that of 75% the sum of node weights, reducing this figure to 30% the sum reveals omething entirely different. Examining the Branch & Bound algorithm working with this restriction we are able to far extend the use-ability of the algorithm to over 50 nodes and furthermore reduce the time taken. This is primarily due to finding a solution in less levels of the search space due to the decreased capacity of the parent container.
-
-
-Data Analysis Results 25
 
 ```
 Figure 4.5:Branch & Bound - T2

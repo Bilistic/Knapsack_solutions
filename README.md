@@ -36,13 +36,6 @@ the exception of such quotations, this project report is entirely my own work.
  Where the thesis is based on work done by myself jointly with others, I have made
 clear exactly what was done by others and what I have contributed myself.
 ```
-Signed:
-
-Date:
-
-```
-i
-```
 
 #### CORK INSTITUTE OF TECHNOLOGY
 
@@ -51,11 +44,7 @@ Abstract
 ```
 Faculty of Engineering and Science
 Department of Computer Science
-```
-```
 Bachelor of Science
-```
-```
 by Joshua Nuttall
 ```
 A comparative study into common algorithm design paradigms aimed towards the 0/
@@ -65,18 +54,7 @@ algorithmic complexity. Test results are produced by use of benchmark testing an
 candidate data sets generated with methods including Weibull distribution and normal
 distributions....
 
-```
-iii
-```
-
 ## Contents
-
-Declaration of Authorship i
-
-Abstract ii
-
-List of Figures vi
-
 
 
 - 1 Introduction List of Tables vii

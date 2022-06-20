@@ -1,23 +1,9 @@
-0/1 Knapsack Problem, A Comparison
-
-of Common Approaches
-
-by
-
-Joshua Nuttall
+0/1 Knapsack Problem
 
 ```
-This thesis has been submitted in partial fulfillment for the
-degree of Bachelor of Science in Software Development
-in the
 Faculty of Engineering and Science
 Department of Computer Science
 ```
-
-
-Declaration of Authorship
-
-I, Joshua Nuttall, declare that this thesis titled, ’0/1 Knapsack Problem, A Comparison of Common Approaches’ and the work presented in it are my own. I confirm that:
 
 ```
  This work was done wholly or mainly while in candidature for an undergraduate
